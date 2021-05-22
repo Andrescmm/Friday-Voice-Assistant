@@ -23,9 +23,9 @@ def time():
 
 
 def date():
-    year = int(datetime.datetime.now().year)
-    month = int(datetime.datetime.now().month)
-    date = int(datetime.datetime.now().day)
+    year = str(datetime.datetime.now().year)
+    month = str(datetime.datetime.now().month)
+    date = str(datetime.datetime.now().day)
     speak("Today is")
     speak(date)
     speak(month)
