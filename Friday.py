@@ -32,4 +32,10 @@ def date():
     speak(year)
 
 
-date()
+def wishme():
+    speak("Welcome back Sir!")
+    time()
+    speak("Friday at your service Sir!")
+
+
+wishme()
