@@ -1,10 +1,11 @@
 import pyttsx3
 import datetime
+import speech_recognition as sr
 
 
 engine = pyttsx3.init()
 voice = engine.getProperty('voices')
-engine.setProperty('voice', voice[7].id)
+engine.setProperty('voice', voice[10].id)
 # Possible Voices
 # 10 7 28 26 25
 
@@ -43,7 +44,28 @@ def wishme():
         speak("Good Afternoon")
     elif hour >= 19 and hour <= 24:
         speak("Good Evening")
+    else:
+        speak("Good Nigth")
     speak("Friday at your service Sir!")
 
 
-wishme()
+def takeCommand():
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Listening....")
+        audio = r.listen(source, timeout=2, phrase_time_limit=10)
+
+    try:
+        print("Recognizing...")
+        query = r.recognize_google(audio)
+        print(query)
+
+    except Exception as e:
+        print(e)
+        speak("Say that again please")
+        return "None"
+
+    return query
+
+
+takeCommand()
