@@ -1,6 +1,7 @@
 import pyttsx3
 import datetime
 import speech_recognition as sr
+import wikipedia
 
 
 engine = pyttsx3.init()
@@ -9,7 +10,7 @@ engine.setProperty('voice', voice[10].id)
 # Possible Voices
 # 10 7 28 26 25
 
-newVoiceRate = 190  # defalult voice rate 200
+newVoiceRate = 180  # defalult voice rate 200
 engine.setProperty('rate', newVoiceRate)
 
 
@@ -68,8 +69,7 @@ def takeCommand():
 
 
 if __name__ == "__main__":
-    wishme()
-
+    # wishme()
     while True:
         query = takeCommand().lower()
         print(query)
@@ -80,3 +80,8 @@ if __name__ == "__main__":
             date()
         elif "offline" in query:
             quit()
+        elif "wikipedia" in query:
+            speak("Searching...")
+            query = query.replace("wikipedia", "")
+            result = wikipedia.summary(query, sentences=2)
+            speak(result)
