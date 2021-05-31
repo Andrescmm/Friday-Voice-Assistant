@@ -5,6 +5,7 @@ import wikipedia
 import smtplib
 import webbrowser as wb
 import os
+import pyautogui
 
 
 engine = pyttsx3.init()
@@ -80,6 +81,11 @@ def sendmail(to, content):
     server.close()
 
 
+def screenhot():
+    img = pyautogui.screenshot()
+    img.save("path")
+
+
 if __name__ == "__main__":
 
     wishme()
@@ -146,3 +152,8 @@ if __name__ == "__main__":
         elif "Do you know anything?" in query:
             remember = open("data.txt", "r")
             speak("You said me to remember that " + remember.read())
+
+        # Screenshot
+        elif "Screenshot" in query:
+            screenhot()
+            speak("Done!")
