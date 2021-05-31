@@ -4,6 +4,7 @@ import speech_recognition as sr
 import wikipedia
 import smtplib
 import webbrowser as wb
+import os
 
 
 engine = pyttsx3.init()
@@ -107,3 +108,12 @@ if __name__ == "__main__":
             except Exception as e:
                 speak(e)
                 speak("Unable to send the email ")
+        elif "logout" in query:
+            os.system("shutdown-1")
+        elif "shutdown" in query:
+            os.system("shutdown /s /t 1")
+        elif "restart" in query:
+            os.system("shutdown /r /t 1")
+        elif "play song" in query:
+            # song_dir = path ofthe songs
+            speak("I'm sorry not avaliable right now")
