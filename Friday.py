@@ -6,6 +6,8 @@ import smtplib
 import webbrowser as wb
 import os
 import pyautogui
+import psutil
+import pyjokes
 
 
 engine = pyttsx3.init()
@@ -86,6 +88,14 @@ def screenhot():
     img.save("path")
 
 
+def cpu():
+    usage = str(psutil.cpu_percent())
+    speak("CPU is at"+usage)
+
+    battery = psutil.sensors_battery
+    speak("Battery is at"+battery)
+
+
 if __name__ == "__main__":
 
     wishme()
@@ -157,3 +167,7 @@ if __name__ == "__main__":
         elif "Screenshot" in query:
             screenhot()
             speak("Done!")
+
+        # cpu
+        elif "cpu" in query:
+            cpu()
