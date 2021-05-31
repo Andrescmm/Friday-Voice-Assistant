@@ -3,6 +3,7 @@ import datetime
 import speech_recognition as sr
 import wikipedia
 import smtplib
+import webbrowser as wb
 
 
 engine = pyttsx3.init()
@@ -79,6 +80,7 @@ def sendmail(to, content):
 
 
 if __name__ == "__main__":
+
     wishme()
     while True:
         query = takeCommand().lower()
