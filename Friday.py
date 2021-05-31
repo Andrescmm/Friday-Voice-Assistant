@@ -114,6 +114,8 @@ if __name__ == "__main__":
             os.system("shutdown /s /t 1")
         elif "restart" in query:
             os.system("shutdown /r /t 1")
-        elif "play song" in query:
+        elif "play a song" in query:
             # song_dir = path ofthe songs
+            #songs = os.listdir(song_dir)
+            # os.startfile(os.path.join(songs_dir,songs[0]))
             speak("I'm sorry not avaliable right now")
