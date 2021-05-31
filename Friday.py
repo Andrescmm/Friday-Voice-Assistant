@@ -96,6 +96,10 @@ def cpu():
     speak("Battery is at"+battery)
 
 
+def jokes():
+    speak(pyjokes.get_joke())
+
+
 if __name__ == "__main__":
 
     wishme()
@@ -171,3 +175,7 @@ if __name__ == "__main__":
         # cpu
         elif "cpu" in query:
             cpu()
+
+        # Jokes
+        elif "joke" in query:
+            jokes()
