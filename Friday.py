@@ -13,7 +13,7 @@ engine.setProperty('voice', voice[10].id)
 # Possible Voices
 # 10 7 28 26 25
 
-newVoiceRate = 180  # defalult voice rate 200
+newVoiceRate = 170  # defalult voice rate 200
 engine.setProperty('rate', newVoiceRate)
 
 
@@ -87,17 +87,26 @@ if __name__ == "__main__":
         query = takeCommand().lower()
         print(query)
 
+        # time
         if "time" in query:
             time()
+
+        # date
         elif "date" in query:
             date()
+
+        # Offline
         elif "offline" in query:
             quit()
+
+        # Wikipedia
         elif "wikipedia" in query:
             speak("Searching...")
             query = query.replace("wikipedia", "")
             result = wikipedia.summary(query, sentences=2)
             speak(result)
+
+        # Email
         elif "send email" in query:
             try:
                 speak("What should I say?")
@@ -108,14 +117,32 @@ if __name__ == "__main__":
             except Exception as e:
                 speak(e)
                 speak("Unable to send the email ")
+
+        # PC commands
         elif "logout" in query:
             os.system("shutdown-1")
         elif "shutdown" in query:
             os.system("shutdown /s /t 1")
         elif "restart" in query:
             os.system("shutdown /r /t 1")
+
+        # Play a Song
         elif "play a song" in query:
             # song_dir = path ofthe songs
             #songs = os.listdir(song_dir)
             # os.startfile(os.path.join(songs_dir,songs[0]))
             speak("I'm sorry not avaliable right now")
+
+        # Remember that
+        elif "remember that" in query:
+            speak("What should i remember?")
+            data = takeCommand()
+            speak("You said me to remember ")
+            remember = open("data.txt", "w")
+            remember.write(data)
+            remember.close()
+
+        # Do you know anything
+        elif "Do you know anything?" in query:
+            remember = open("data.txt", "r")
+            speak("You said me to remember that " + remember.read())
