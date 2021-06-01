@@ -16,7 +16,7 @@ engine.setProperty('voice', voice[10].id)
 # Possible Voices
 # 10 7 28 26 25
 
-newVoiceRate = 170  # defalult voice rate 200
+newVoiceRate = 180  # defalult voice rate 200
 engine.setProperty('rate', newVoiceRate)
 
 
@@ -90,10 +90,10 @@ def screenhot():
 
 def cpu():
     usage = str(psutil.cpu_percent())
-    speak("CPU is at"+usage)
+    speak("CPU is at" + str(usage))
 
     battery = psutil.sensors_battery
-    speak("Battery is at"+battery)
+    speak("Battery is at" + str(battery))
 
 
 def jokes():
