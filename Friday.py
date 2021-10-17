@@ -59,7 +59,7 @@ def takeCommand():
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening....")
-        audio = r.listen(source, timeout=2, phrase_time_limit=10)
+        audio = r.listen(source, timeout=20, phrase_time_limit=10)
 
     try:
         print("Recognizing...")
@@ -179,3 +179,8 @@ if __name__ == "__main__":
         # Jokes
         elif "joke" in query:
             jokes()
+
+        #Stop
+        elif "Good bye" in query:
+            break; 
+
